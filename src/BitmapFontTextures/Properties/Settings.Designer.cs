@@ -50,9 +50,9 @@ namespace BitmapFontTextures.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string OutlineSize {
+        public int OutlineSize {
             get {
-                return ((string)(this["OutlineSize"]));
+                return ((int)(this["OutlineSize"]));
             }
             set {
                 this["OutlineSize"] = value;
@@ -62,9 +62,9 @@ namespace BitmapFontTextures.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string ShadowOffset {
+        public int ShadowOffset {
             get {
-                return ((string)(this["ShadowOffset"]));
+                return ((int)(this["ShadowOffset"]));
             }
             set {
                 this["ShadowOffset"] = value;
@@ -74,9 +74,9 @@ namespace BitmapFontTextures.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("128")]
-        public string AlphaAmount {
+        public int AlphaAmount {
             get {
-                return ((string)(this["AlphaAmount"]));
+                return ((int)(this["AlphaAmount"]));
             }
             set {
                 this["AlphaAmount"] = value;
@@ -246,6 +246,18 @@ namespace BitmapFontTextures.Properties {
             }
             set {
                 this["PreviewLineSpacing"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int Padding {
+            get {
+                return ((int)(this["Padding"]));
+            }
+            set {
+                this["Padding"] = value;
             }
         }
     }

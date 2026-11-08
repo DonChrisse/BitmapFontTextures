@@ -31,13 +31,20 @@ public partial class MainForm : Form
   private void LoadSettings()
   {
     comboBoxFontName.Text = Settings.Default.FontName;
+    comboBoxFontStyle.Text = Settings.Default.FontStyle;
+    comboBoxFontSize.Text = Settings.Default.FontSize;
+    checkBoxAntialias.Checked = Settings.Default.Antialias;
     pictureBoxTextColor.BackColor = Settings.Default.TextColor;
     pictureBoxOutlineColor.BackColor = Settings.Default.OutlineColor;
     pictureBoxShadowColor.BackColor = Settings.Default.ShadowColor;
+    OutlineSize.Value = Math.Clamp(Settings.Default.OutlineSize, (int)OutlineSize.Minimum, (int)OutlineSize.Maximum);
+    ShadowOffset.Value = Math.Clamp(Settings.Default.ShadowOffset, (int)ShadowOffset.Minimum, (int)ShadowOffset.Maximum);
+    AlphaAmount.Value = Math.Clamp(Settings.Default.AlphaAmount, (int)AlphaAmount.Minimum, (int)AlphaAmount.Maximum);
     textBoxSampleText.Text = Settings.Default.SampleText;
     numericUpDownZoom.Value = Math.Clamp(Settings.Default.PreviewZoom, (int)numericUpDownZoom.Minimum, (int)numericUpDownZoom.Maximum);
     numericUpDownSpacing.Value = Math.Clamp((decimal)Settings.Default.PreviewSpacing, numericUpDownSpacing.Minimum, numericUpDownSpacing.Maximum);
     numericUpDownLineSpacing.Value = Math.Clamp(Settings.Default.PreviewLineSpacing, (int)numericUpDownLineSpacing.Minimum, (int)numericUpDownLineSpacing.Maximum);
+    numericUpDownPadding.Value = Math.Clamp(Settings.Default.Padding, (int)numericUpDownPadding.Minimum, (int)numericUpDownPadding.Maximum);
 
     // Text files
     if (Settings.Default.TextFiles is not null)
@@ -61,11 +68,28 @@ public partial class MainForm : Form
 
   private void SaveSettings()
   {
+    // Font
+    Settings.Default.FontName = comboBoxFontName.Text;
+    Settings.Default.FontStyle = comboBoxFontStyle.Text;
+    Settings.Default.FontSize = comboBoxFontSize.Text;
+    Settings.Default.Antialias = checkBoxAntialias.Checked;
+    Settings.Default.TextColor = pictureBoxTextColor.BackColor;
+
+    // Outline and shadow
+    Settings.Default.OutlineColor = pictureBoxOutlineColor.BackColor;
+    Settings.Default.ShadowColor = pictureBoxShadowColor.BackColor;
+    Settings.Default.OutlineSize = (int)OutlineSize.Value;
+    Settings.Default.ShadowOffset = (int)ShadowOffset.Value;
+    Settings.Default.AlphaAmount = (int)AlphaAmount.Value;
+
     // Preview
     Settings.Default.SampleText = textBoxSampleText.Text;
     Settings.Default.PreviewZoom = (int)numericUpDownZoom.Value;
     Settings.Default.PreviewSpacing = (float)numericUpDownSpacing.Value;
     Settings.Default.PreviewLineSpacing = (int)numericUpDownLineSpacing.Value;
+
+    // Export
+    Settings.Default.Padding = (int)numericUpDownPadding.Value;
 
     // Text files
     Settings.Default.TextFiles = [];
@@ -129,12 +153,13 @@ public partial class MainForm : Form
       text,
       selectedFont!,
       pictureBoxTextColor.BackColor,
-      int.Parse(AlphaAmount.Text),
-      Antialias.Checked,
-      int.Parse(ShadowOffset.Text),
+      (int)AlphaAmount.Value,
+      checkBoxAntialias.Checked,
+      (int)ShadowOffset.Value,
       pictureBoxShadowColor.BackColor,
-      int.Parse(OutlineSize.Text),
-      pictureBoxOutlineColor.BackColor);
+      (int)OutlineSize.Value,
+      pictureBoxOutlineColor.BackColor,
+      (int)numericUpDownPadding.Value);
 
   private void UpdatePreview()
   {

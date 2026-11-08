@@ -61,7 +61,8 @@ internal sealed class BitmapFontTextureService
 
     try
     {
-      const int padding = 8;
+      // The font texture processor needs at least one pixel to separate the glyphs.
+      int padding = Math.Max(parameters.Padding, 1);
 
       int width = padding;
       int height = padding;

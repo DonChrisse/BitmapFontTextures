@@ -8,13 +8,13 @@
     <Setting Name="FontSize" Type="System.String" Scope="User">
       <Value Profile="(Default)">8</Value>
     </Setting>
-    <Setting Name="OutlineSize" Type="System.String" Scope="User">
+    <Setting Name="OutlineSize" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="ShadowOffset" Type="System.String" Scope="User">
+    <Setting Name="ShadowOffset" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="AlphaAmount" Type="System.String" Scope="User">
+    <Setting Name="AlphaAmount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">128</Value>
     </Setting>
     <Setting Name="TextColor" Type="System.Drawing.Color" Scope="User">
@@ -60,6 +60,9 @@ THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG!
     </Setting>
     <Setting Name="PreviewLineSpacing" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Padding" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
     </Setting>
   </Settings>
 </SettingsFile>

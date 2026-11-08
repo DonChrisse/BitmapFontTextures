@@ -11,4 +11,5 @@ internal sealed record BitmapFontTextureParameters(
   int Shadow,
   Color ShadowColor,
   int Outline,
-  Color OutlineColor);
+  Color OutlineColor,
+  int Padding);
